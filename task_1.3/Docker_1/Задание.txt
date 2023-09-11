@@ -30,5 +30,7 @@ docker exec -it de_cont psql -U de_study -d database
 
 Задание 3.
 
-Подключаем volume  к нашим будущим контейнерам:
-docker run -d --name de_cont_v -v docker_volume:/usr/lib/psql/de -d de_cont
+Подключаем volume  к нашим будущим контейнерам с помощью dockerfile или через CMD:
+VOLUME data:/var/lib/postgresql/data
+
+docker run -d --name de_cont_v -v data:/var/lib/postgresql/data -d de_cont
