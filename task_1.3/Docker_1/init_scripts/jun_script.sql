@@ -1,3 +1,2 @@
-INSERT INTO public.index_mass (id, first_name, last_name, email, hire_date) 
-VALUES
-    (104, Rick, 35);
+INSERT INTO public.index_mass (user_id, weight, height) VALUES
+    (104, 89, 135);

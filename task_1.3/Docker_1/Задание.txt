@@ -1,0 +1,34 @@
+Задание 1.
+
+Создали образ:
+docker build -t data_engineer:latest .
+
+Собрали контейнер:
+docker run -d -p 5432:5432 --name de_cont data_engineer:latest
+
+Проверили через DBeaver, что наша база успешно развернулась и sql скрипт отработал.
+
+
+
+
+Задание 2.
+
+С помощью команды - docker exec -it de_cont bash - подключаемся через bash к нашей базе.
+
+Далее заходим в нее:
+psql -U de_study datebase
+
+Заполняем с помощью SQL запроса:
+INSERT INTO index_mass (user_id, weight, height) VALUES (105, 21, 193);
+
+Быстрый вход в нашу базу таков:
+docker exec -it de_cont psql -U de_study -d database
+
+
+
+
+
+Задание 3.
+
+Подключаем volume  к нашим будущим контейнерам:
+docker run -d --name de_cont_v -v docker_volume:/usr/lib/psql/de -d de_cont
