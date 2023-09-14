@@ -1,0 +1,45 @@
+Логическая модель БД "Библиотека"
+
+Имеем 5 таблиц, в которых расставляем ключи PK и FK:
+
+Учет выдачи (extrad)
+PK - extrad_id bigint
+FK - readTick_id bigint
+FK - book_id bigint
+start_date date
+end_date date
+return_book char(1)
+
+Читатели (readers)
+PK - readTick bigint
+FIO varchar (250)
+address varchar (250)
+phone_number varchar (25)
+email varchar (100)
+
+Книги (books)
+PK - book_id bigint
+book_title varchar (250)
+total_book int
+FK - author_id bigint
+year_pub date
+pages int
+price numeric (10, 2)
+publish_id bigint
+
+Автор книги (author_book)
+PK - author_id bigint
+FIO_author varchar (250)
+
+Издательство (publisher)
+PK - publish_id bigint
+pub_title varchar (250)
+city varchar (150)
+
+
+Пояснение к связям:
+1. Читатель может взять множество книг из библиотеки
+2. Каждую книгу можно взять множество раз
+3. Авторов  у книг может быть много, поэтому связь многие ко многим
+4. Издательство может печатать множество книг
+
