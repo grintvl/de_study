@@ -1,0 +1,14 @@
+version: '0.1'
+services:
+  sql_library:
+    image: data_engineer:latest
+    container_name: de_cont
+    ports: 
+      - 5432:5432
+    environment:
+      POSTGRES_USER: de_sql_lib
+      POSTGRES_PASSWORD: 12345
+      POSTGRES_DB: lib_sql_db
+    volumes:
+      - ./db/ddl_init.sql:/docker-entrypoint-initdb.d/ddl_init.sql
+    restart: always

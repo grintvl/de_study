@@ -25,7 +25,7 @@ FK - author_id bigint
 year_pub date
 pages int
 price numeric (10, 2)
-publish_id bigint
+FK - publish_id bigint
 
 Автор книги (author_book)
 PK - author_id bigint
