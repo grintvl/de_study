@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS public.books (
     book_id SERIAL PRIMARY KEY,
     book_title varchar (250),
     total_book integer,
-    author_id NOT NULL REFERENCES public.author_book(author_id),
     year_pub date,
     pages integer,
     price numeric(10,2),
@@ -27,8 +26,14 @@ CREATE TABLE IF NOT EXISTS public.books (
 );
 
 CREATE TABLE IF NOT EXISTS public.author_book (
+    author_id REFERENCES public.author(author_id),
+    book_id REFERENCES public.books(book_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.author (
     author_id SERIAL PRIMARY KEY,
-    FIO_author varchar (250)
+    FIO_author varchar (250),
+    birthdate date
 );
 
 CREATE TABLE IF NOT EXISTS public.publisher (
