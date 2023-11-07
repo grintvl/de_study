@@ -20,3 +20,18 @@ create table if not exists public.OrderDetails (
 	Quantity integer,
 	UnitPrice decimal
 );
+
+create table if not exists public.Products (
+	ProductID serial primary key,
+	ProductName varchar(100),
+	CategoryID integer,
+	Price decimal
+);
+
+create table if not exists public.ProductReviews (
+	ReviewID serial primary key,
+	ProductID integer references public.Products,
+	CustomerID integer references public.Orders,
+	Rating integer, 
+    ReviewText text
+);
